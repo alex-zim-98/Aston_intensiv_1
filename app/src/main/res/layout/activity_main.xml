@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MusicActivity">
+
+    <ImageButton
+        android:id="@+id/playPauseButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@android:drawable/ic_media_play"
+        android:contentDescription="@string/play"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/previousButton"
+        app:layout_constraintTop_toBottomOf="@+id/sbSong" />
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@android:drawable/ic_media_next"
+        android:contentDescription="@string/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playPauseButton"
+        app:layout_constraintTop_toBottomOf="@+id/sbSong" />
+
+    <ImageButton
+        android:id="@+id/previousButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@android:drawable/ic_media_previous"
+        android:contentDescription="@string/previous"
+        app:layout_constraintEnd_toStartOf="@+id/playPauseButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbSong" />
+
+    <SeekBar
+        android:id="@+id/sbSong"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSong"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/song_view"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/tvSongName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/coy" />
+
+    <TextView
+        android:id="@+id/tvSongName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/sbSong"
+        app:layout_constraintEnd_toEndOf="@+id/sbSong"
+        app:layout_constraintStart_toStartOf="@+id/sbSong"
+        tools:text="Song" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
