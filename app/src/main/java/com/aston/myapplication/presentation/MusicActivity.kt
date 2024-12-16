@@ -1,6 +1,7 @@
 // MusicActivity.kt
 package com.aston.myapplication.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
@@ -9,6 +10,9 @@ import androidx.core.content.ContextCompat
 import com.aston.myapplication.application.MyApp
 import com.aston.myapplication.data.service.MusicService
 import com.aston.myapplication.databinding.ActivityMainBinding
+import com.aston.myapplication.utils.ForegroundServicePermissionHelper.checkAndRequestNotificationPermission
+import com.aston.myapplication.utils.ForegroundServicePermissionHelper.openAppNotificationSettings
+
 
 class MusicActivity : AppCompatActivity() {
 
@@ -20,6 +24,13 @@ class MusicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
+
+        checkAndRequestNotificationPermission(
+            this,
+            onPermissionDenied = {
+                openAppNotificationSettings(this)
+            }
+        )
 
         viewModel = (applicationContext as MyApp).musicViewModel
 
